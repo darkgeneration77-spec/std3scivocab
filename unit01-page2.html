@@ -19,43 +19,19 @@
     <div class="nav"><a class="btn" href="index.html">← 首页</a><a class="btn" href="unit01-page1.html">← Page 1</a></div>
     <div class="nav"><a class="btn primary" href="#quiz">开始练习</a></div>
   </div>
-
-  <section class="hero">
-    <div class="kicker">第一单元 · 科学技能 · Page 2 / 4</div>
-    <h1>图解理解：观察、推断、预测</h1>
-    <p class="subtitle">记住一条路线：<strong>看见什么 → 为什么 → 接下来会怎样</strong>。这三个概念分清楚，后面的科学题就顺很多。</p>
-  </section>
-
-  <section class="panel">
-    <img class="concept-img" src="unit01-page2.webp" alt="观察、推断和预测的冰块与植物图解" loading="eager" />
-    <div class="legend">
-      <div class="obs">观察：写真正看到、听到或测量到的现象。</div>
-      <div class="inf">推断：根据观察到的现象，说出可能的原因。</div>
-      <div class="pred">预测：根据已有资料，推测接下来可能发生什么。</div>
-    </div>
-  </section>
-
-  <section class="panel quiz" id="quiz">
-    <h2>我会分辨</h2>
-    <p>每题选择「观察」「推断」或「预测」。选错会立即显示提示。</p>
-
+  <section class="hero"><div class="kicker">第一单元 · 科学技能 · Page 2 / 4</div><h1>图解理解：观察、推断、预测</h1><p class="subtitle">记住一条路线：<strong>看见什么 → 为什么 → 接下来会怎样</strong>。这三个概念分清楚，后面的科学题就顺很多。</p></section>
+  <section class="panel"><img class="concept-img" src="unit01-page2-small.webp" alt="观察、推断和预测的冰块与植物图解" loading="eager" /><div class="legend"><div class="obs">观察：写真正看到、听到或测量到的现象。</div><div class="inf">推断：根据观察到的现象，说出可能的原因。</div><div class="pred">预测：根据已有资料，推测接下来可能发生什么。</div></div></section>
+  <section class="panel quiz" id="quiz"><h2>我会分辨</h2><p>每题选择「观察」「推断」或「预测」。选错会立即显示提示。</p>
     <div class="q" data-answer="观察"><div class="statement">1. 水的温度是 60°C。</div><div class="choices"><button class="choice">观察</button><button class="choice">推断</button><button class="choice">预测</button></div><div class="feedback"></div></div>
     <div class="q" data-answer="推断"><div class="statement">2. 水温升高可能是因为受到加热。</div><div class="choices"><button class="choice">观察</button><button class="choice">推断</button><button class="choice">预测</button></div><div class="feedback"></div></div>
     <div class="q" data-answer="预测"><div class="statement">3. 继续加热，水温可能会继续上升。</div><div class="choices"><button class="choice">观察</button><button class="choice">推断</button><button class="choice">预测</button></div><div class="feedback"></div></div>
     <div class="q" data-answer="观察"><div class="statement">4. 我看到天空有很多乌云。</div><div class="choices"><button class="choice">观察</button><button class="choice">推断</button><button class="choice">预测</button></div><div class="feedback"></div></div>
     <div class="q" data-answer="推断"><div class="statement">5. 乌云出现可能是因为空气中有很多水蒸气。</div><div class="choices"><button class="choice">观察</button><button class="choice">推断</button><button class="choice">预测</button></div><div class="feedback"></div></div>
     <div class="q" data-answer="预测"><div class="statement">6. 如果乌云越来越多，可能会下雨。</div><div class="choices"><button class="choice">观察</button><button class="choice">推断</button><button class="choice">预测</button></div><div class="feedback"></div></div>
-
-    <div class="tip"><b>记一记：</b>观察 = 看见什么；推断 = 为什么；预测 = 接下来会怎样。</div>
-    <div class="summary"><div class="score" id="score">得分：0 / 6</div><a class="btn primary" href="#" onclick="resetQuiz();return false;">重新作答</a></div>
+    <div class="tip"><b>记一记：</b>观察 = 看见什么；推断 = 为什么；预测 = 接下来会怎样。</div><div class="summary"><div class="score" id="score">得分：0 / 6</div><a class="btn primary" href="#" onclick="resetQuiz();return false;">重新作答</a></div>
   </section>
 </main>
 <script>
-const qs=[...document.querySelectorAll('.q')];
-function refresh(){const done=qs.filter(q=>q.dataset.done==='1'&&q.dataset.correct==='1').length;document.getElementById('score').textContent=`得分：${done} / ${qs.length}`}
-qs.forEach(q=>{q.querySelectorAll('.choice').forEach(btn=>btn.addEventListener('click',()=>{if(q.dataset.done==='1')return;const ok=btn.textContent.trim()===q.dataset.answer;q.dataset.done='1';q.dataset.correct=ok?'1':'0';btn.classList.add(ok?'correct':'wrong');q.querySelectorAll('.choice').forEach(b=>{if(b.textContent.trim()===q.dataset.answer)b.classList.add('correct')});q.querySelector('.feedback').textContent=ok?'正确。':'再看提示：观察写现象，推断写原因，预测写接下来可能发生的事。';refresh()}))});
-function resetQuiz(){qs.forEach(q=>{delete q.dataset.done;delete q.dataset.correct;q.querySelectorAll('.choice').forEach(b=>b.classList.remove('correct','wrong'));q.querySelector('.feedback').textContent=''});refresh()}
-refresh();
+const qs=[...document.querySelectorAll('.q')];function refresh(){const done=qs.filter(q=>q.dataset.done==='1'&&q.dataset.correct==='1').length;document.getElementById('score').textContent=`得分：${done} / ${qs.length}`}qs.forEach(q=>{q.querySelectorAll('.choice').forEach(btn=>btn.addEventListener('click',()=>{if(q.dataset.done==='1')return;const ok=btn.textContent.trim()===q.dataset.answer;q.dataset.done='1';q.dataset.correct=ok?'1':'0';btn.classList.add(ok?'correct':'wrong');q.querySelectorAll('.choice').forEach(b=>{if(b.textContent.trim()===q.dataset.answer)b.classList.add('correct')});q.querySelector('.feedback').textContent=ok?'正确。':'再看提示：观察写现象，推断写原因，预测写接下来可能发生的事。';refresh()}))});function resetQuiz(){qs.forEach(q=>{delete q.dataset.done;delete q.dataset.correct;q.querySelectorAll('.choice').forEach(b=>b.classList.remove('correct','wrong'));q.querySelector('.feedback').textContent=''});refresh()}refresh();
 </script>
-</body>
-</html>
+</body></html>
